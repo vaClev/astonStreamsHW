@@ -87,11 +87,10 @@ public class Tests {
         Stream<Transaction> transactionsStream = PuttingIntoPractice.transactions.stream();
         int maxTransactionValue= transactionsStream
                 .map(Transaction::getValue)
-                .max(Integer::compare).get();
+                .max(Integer::compare).orElse(-1);
         System.out.println("Max transaction value: "+maxTransactionValue);
         System.out.println("task 7 Completed!\n\n");
     }
-
     public static Transaction getTransactionWithMinValue() {
         //8. Найти транзакцию с минимальной суммой.
         Stream<Transaction> transactionsStream = PuttingIntoPractice.transactions.stream();
